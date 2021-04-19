@@ -3,7 +3,7 @@ env: flex
 
 # This is a horrible workaround to get streamlit working on app engine
 # https://discuss.streamlit.io/t/has-anyone-deployed-to-google-cloud-platform/931/20
-entrypoint: CMD find /usr/local/lib/python3.8/site-packages/streamlit -type f \( -iname \*.py -o -iname \*.js \) -print0 | xargs -0 sed -i 's/healthz/health-check/g' && streamlit run sim_v3.py --server.port 8080 --server.enableCORS=false --server.enableXsrfProtection=false
+entrypoint: find /usr/local/lib/python3.8/site-packages/streamlit -type f \( -iname \*.py -o -iname \*.js \) -print0 | xargs -0 sed -i 's/healthz/health-check/g' && streamlit run app.py --server.port 8080 --server.enableCORS=false --server.enableXsrfProtection=false
 
 runtime_config:
   python_version: 3
