@@ -10,4 +10,4 @@ EXPOSE 8080
 
 COPY . /app
 
-CMD streamlit run --server.port 8080 --server.enableCORS false app.py
+CMD echo ${VIRTUAL_ENV} && echo ${PORT} && find ${VIRTUAL_ENV}/lib/python3.8/site-packages/streamlit -type f \( -iname \*.py -o -iname \*.js \) -print0 | xargs -0 sed -i 's/healthz/health-check/g' && streamlit run app.py --server.port 8080 --server.enableCORS=false --server.enableXsrfProtection=false
