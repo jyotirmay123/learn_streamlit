@@ -7,7 +7,7 @@ import time
 
 
 def main():
-    st.title('My first app - +/healthz fixes')
+    st.title('My first app - +/healthz fixes for py3.8')
 
     st.write("Here's our first attempt at using data to create a table:")
     st.write(pd.DataFrame({
