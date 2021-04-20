@@ -1,3 +1,4 @@
+
 -e ./common
 -r ./common/requirements-ml.txt 
 
@@ -6,4 +7,4 @@ pandas
 numpy
 plotly
 google-cloud-resource-manager
-pystan
+
