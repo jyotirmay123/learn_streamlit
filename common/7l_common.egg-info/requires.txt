@@ -1,0 +1,5 @@
+
+[tests]
+pytest
+black
+flake8
