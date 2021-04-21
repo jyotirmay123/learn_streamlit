@@ -1,12 +1,28 @@
-import streamlit as st
+
+
+from flask import Flask
+from flask.templating import render_template
 # To make things easier later, we're also importing numpy and pandas for
 # working with sample data.
 import numpy as np
 import pandas as pd
 import time
 
+app = Flask(__name__)
 
-def main():
+@app.route('/foo')
+def serve_foo():
+    return 'This page is served via Flask!'
+
+@app.route("/")
+def index():
+    return render_template("index.html")
+
+
+
+@app.route("/streamlitAPP")
+def streamlitAPP():
+    import streamlit as st
     st.title('My first app - +/healthz fixes for py3.8')
 
     st.write("Here's our first attempt at using data to create a table:")
@@ -81,5 +97,4 @@ def main():
 
     '...and now we\'re done!'
 
-if __name__ == '__main__':
-    main()
+# app.run(port=8888)
